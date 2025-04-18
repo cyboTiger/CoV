@@ -1,12 +1,19 @@
 # CoV
-scripts for Chain-of-View manipulation
+repo for Chain-of-View manipulation
 ## Prerequisites
+### environments
 ```
 pip install -r requirements.txt
 ```
+### data preparation
+Download [scannet] data from [scannet official repo](https://github.com/ScanNet/ScanNet), here we only need
 
-## scripts intro
++ `.sens` for frame pose
++ `_vh_clean_2.ply` for scene point cloud
+
+## Scripts intro
 ```bash
+├── scanqa_scenes.txt # list of scenes for scanqa validation set
 ├── trace_vis.py      # watch ply file with camera trace annotation  
 ├── overview.sh       # watch scene by scene
 ├── vista_plyvis.py   # generate camera trace annotation 
@@ -15,7 +22,7 @@ pip install -r requirements.txt
 └── game.sh           # watch scene by scene / manipulate view
 ```
 ## usage
-for view manipulation (`game.sh`), we specify key as below:
+for view manipulation (`game.sh`), we specify keys as below:
 
 ### View switch
 + <kbd>c</kbd> for switch to next view
