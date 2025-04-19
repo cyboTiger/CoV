@@ -118,7 +118,7 @@ def main():
     # 设置相机
     output_dir = f'/Users/zhuruihan/Desktop/llava-3d/pose_annotated_mesh'
 
-    combined.save(os.path.join(output_dir, f'scene{args.scene_id}_sparse.ply' if args.sparse else f'scene{args.scene_id}_sparse.ply'), texture='Colors')
+    combined.save(os.path.join(output_dir, f'scene{args.scene_id}_sparse.ply' if args.sparse else f'scene{args.scene_id}.ply'), texture='Colors')
     plotter.add_mesh(combined, scalars='Colors', rgb=True)
     plotter.close()
 

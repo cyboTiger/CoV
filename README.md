@@ -6,7 +6,7 @@ repo for Chain-of-View manipulation
 pip install -r requirements.txt
 ```
 ### data preparation
-Download [scannet] data from [scannet official repo](https://github.com/ScanNet/ScanNet), here we only need
+Download scannet data from [scannet official repo](https://github.com/ScanNet/ScanNet), here we only need
 
 + `.sens` for frame pose
 + `_vh_clean_2.ply` for scene point cloud
@@ -18,8 +18,8 @@ Download [scannet] data from [scannet official repo](https://github.com/ScanNet/
 ├── overview.sh       # watch scene by scene
 ├── vista_plyvis.py   # generate camera trace annotation 
 ├── generate.sh       # generate scene by scene
-├── watch_ply.py      # watch scene following trace of camera
-└── game.sh           # watch scene by scene / manipulate view
+├── watch_ply.py      # watch scene following trace of camera / manipulate view
+└── game.sh           # watch scene by scene
 ```
 ## usage
 for view manipulation (`game.sh`), we specify keys as below:

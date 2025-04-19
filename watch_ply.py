@@ -8,6 +8,11 @@ import shortuuid
 view_pose = []
 cur_view_ptr = 0
 plotter = pv.Plotter(window_size=[1920, 1080])
+def screen_shot():
+    global plotter
+    name = f"screenshots/{shortuuid.uuid()}.png"
+    plotter.screenshot(name)
+    return name
 def switch_view():
     global cur_view_ptr
     global view_pose
@@ -53,7 +58,6 @@ def move_camera(direction):
     cam.position = np.array(cam.position) + offset
     cam.focal_point = np.array(cam.focal_point) + offset
     plotter.render()
-    plotter.screenshot(f"screenshots/{shortuuid.uuid()}.png")
 
 def rotate_horizontal(angle_deg):
     """
@@ -77,7 +81,6 @@ def rotate_horizontal(angle_deg):
     new_forward = R @ forward
     cam.focal_point = pos + new_forward
     plotter.render()
-    plotter.screenshot(f"screenshots/{shortuuid.uuid()}.png")
 
 # def rotate_vertical(angle_deg):
 #     cam = plotter.camera
@@ -130,7 +133,7 @@ def go_to_camera_view(plotter, pose):
     plotter.camera.focal_point = position + direction
     plotter.camera.up = up
     plotter.render()
-    plotter.screenshot(f"screenshots/{shortuuid.uuid()}.png")
+    
 
 def main():
     global view_pose
@@ -176,6 +179,9 @@ def main():
     plotter.add_key_event("Left", lambda: rotate_horizontal(-5))
     # plotter.add_key_event("Up", lambda: rotate_vertical(5))
     # plotter.add_key_event("Down", lambda: rotate_vertical(-5))
+
+    # 截屏
+    plotter.add_key_event("space", screen_shot)
 
     plotter.add_mesh(mesh, scalars='Colors', rgb=True)
     plotter.show(screenshot=f'scene{args.scene_id}_{cur_view_ptr}.png')
